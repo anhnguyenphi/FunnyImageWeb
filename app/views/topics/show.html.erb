@@ -1,0 +1,31 @@
+<div class="topic">
+	<table class="title">
+	<tr>
+		<td class="leftTitle"><h2><%= @topic.title %></h2></td>
+		<td class="rightTitle">
+			<div class="btn-group" role="group" aria-label="...">
+				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#Edit">
+					Edit
+				</button>
+			  	<button type="button" class="btn btn-danger">
+			  	<%= link_to 'Destroy', topic_path(@topic),
+              				method: :delete,
+              				data: { confirm: 'Are you sure?' } ,
+              				style: "color:white"
+              	%>
+			  	</button>
+			</div>
+		</td>
+		<%= render 'edit' %>
+	</tr>
+	</table>
+	<div class="">
+		<%= image_tag @topic.image.url(:medium),:class => "image" %> 
+	</div>
+	<ul class="infoTopic">
+		<li><a href="">View <span class="badge"><%= @topic.view %></span></a></li>	
+		<li><a href="">Like <span class="badge"><%= @topic.like %></span></a></li>
+		<li><a href="">Comment <span class="badge"><%= @topic.comment %></span></a></li>
+	</ul>
+</div>
+<hr>
