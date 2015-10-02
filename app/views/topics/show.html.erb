@@ -4,16 +4,13 @@
 		<td class="leftTitle"><h2><%= @topic.title %></h2></td>
 		<td class="rightTitle">
 			<div class="btn-group" role="group" aria-label="...">
+
 				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#Edit">
 					Edit
 				</button>
-			  	<button type="button" class="btn btn-danger">
-			  	<%= link_to 'Destroy', topic_path(@topic),
-              				method: :delete,
-              				data: { confirm: 'Are you sure?' } ,
-              				style: "color:white"
-              	%>
-			  	</button>
+
+			  	<%= render 'delete' %>
+			  	
 			</div>
 		</td>
 		<%= render 'edit' %>
