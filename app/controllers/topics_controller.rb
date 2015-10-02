@@ -1,15 +1,18 @@
 class TopicsController < ApplicationController
 	def index
 		@topic = Topic.order(created_at: :desc)
+		@newTopic = Topic.new
 	end
 
 	def show
+		@newTopic = Topic.new
 		@topic = Topic.find(params[:id])
 		@topic.view+=1
 		@topic.save
 	end
 
 	def new
+		@newTopic = Topic.new
 		@topic = Topic.new
 	end
 
@@ -37,7 +40,7 @@ class TopicsController < ApplicationController
 	def destroy
 		@topic = Topic.find(params[:id])
 		@topic.destroy
-		redirect_to topic_path
+		redirect_to topics_path
 	end
 	private
 	def topic_params

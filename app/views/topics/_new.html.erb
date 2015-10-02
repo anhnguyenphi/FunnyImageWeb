@@ -1,0 +1,46 @@
+<!-- Button trigger modal -->
+<% if url_for(:controller => 'topics', :action => 'new') != request.path %>
+<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#myModal">
+  New Topic
+</button>
+<% end %>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">New Topic</h4>
+      </div>
+      <div class="modal-body">
+          <%= form_for @newTopic ,html: { multipart: true} do |f| %>
+			  <% if @newTopic.errors.any? %>
+			    <div id="error_explanation">
+			      <h2>
+			        <%= pluralize(@newTopic.errors.count, "error") %> prohibited
+			        this topic from being saved:
+			      </h2>
+			      <ul>
+			        <% @newTopic.errors.full_messages.each do |msg| %>
+			          <li><%= msg %></li>
+			        <% end %>
+			      </ul>
+			    </div>
+			    <% end %>
+			  <div class="form-group">
+			  <%= f.label :title, 'Title' %>
+			  <%= f.text_field :title, :class => "form-control" %>
+			  </div>
+			  <div class="form-group">
+			  <%= f.label :image, 'Image' %>
+			  <%= f.file_field :image %>
+			  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= submit_tag 'Save Changes', class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
