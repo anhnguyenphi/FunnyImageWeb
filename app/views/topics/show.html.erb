@@ -17,7 +17,9 @@
 	</tr>
 	</table>
 	<div class="">
-		<%= image_tag @topic.image.url(:medium),:class => "image" %> 
+		<a href="<%= @topic.image.url(:full) %>" data-lightbox="mainImage">
+			<%= image_tag @topic.image.url(:full),:class => "image" %> 
+		</a>
 	</div>
 	<ul class="infoTopic">
 		<li><a href="">View <span class="badge"><%= @topic.view %></span></a></li>	

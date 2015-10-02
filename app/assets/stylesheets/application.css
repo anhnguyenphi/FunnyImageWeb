@@ -14,20 +14,19 @@
  *= require_tree .
  *= require_self
  */
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('../assets/glyphicons-halflings-regular.eot');
-  src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
-       url('../assets/glyphicons-halflings-regular.woff') format('woff'), 
-       url('../assets/glyphicons-halflings-regular.ttf') format('truetype'), 
-       url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-}
  
 html, body {
     height: 100%;
 }
 body { 
 	padding-top: 70px; 
+}
+.navbar-npa {
+	background-color: #263238;
+	
+	-webkit-box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.53);
+	-moz-box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.53);
+	box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.53);
 }
 #main {
    min-height: 100%;
@@ -70,6 +69,7 @@ footer {
  footer p {
  	text-align: center;
  }
+
 
 
 

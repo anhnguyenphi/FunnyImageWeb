@@ -15,8 +15,3 @@
 //= require bootstrap.min
 //= require turbolinks
 //= require_tree .
-
-$('#Edit').on('shown.bs.modal', function () {
-  $('#Edit').focus()
-})
-
