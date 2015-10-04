@@ -6,4 +6,5 @@ class Topic < ActiveRecord::Base
 	validates_attachment :image, presence: true,
   						  content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
   						  size: { in: 0..3.megabytes }
+  	validates :title, presence: true, length: {maximum: 50}
 end
