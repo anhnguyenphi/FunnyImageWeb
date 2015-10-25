@@ -1,0 +1,13 @@
+<% content_for :narbarElement do %>
+	<li><%= link_to 'Sign in','/signup'%></li>
+	<% if (request.original_fullpath != '/signup') %>
+        <li><%= link_to 'Sign up','/signup'%></li>
+    <% end %>
+<% end %>
+<% content_for :content do %>
+<% flash.each do |key, value| %>
+	<div class="alert alert-success flash <%= key %>" role="alert"><%= value %></div>
+	<% end %>
+ <%= yield %>
+ <% end %>
+ <%= render template: "layouts/application" %>

@@ -13,14 +13,13 @@ class TopicsController < ApplicationController
 
 	def new
 		@newTopic = Topic.new
-		@topic = Topic.new
 	end
 
 	def create
-		@topic = Topic.new(topic_params_post)
-		@topic.view = @topic.comment = @topic.like = 0
-		if @topic.save
-			redirect_to @topic
+		@newTopic = Topic.new(topic_params_post)
+		@newTopic.view = @newTopic.comment = @newTopic.like = 0
+		if @newTopic.save
+			redirect_to @newTopic
 		else
 			render 'new'
 		end

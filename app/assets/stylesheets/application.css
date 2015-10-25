@@ -27,6 +27,7 @@ body {
 	-webkit-box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.53);
 	-moz-box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.53);
 	box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.53);
+	color: white;
 }
 #main {
    min-height: 100%;
