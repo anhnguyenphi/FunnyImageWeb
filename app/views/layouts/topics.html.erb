@@ -1,8 +1,6 @@
 <% content_for :narbarElement do %>
-	<li><%= link_to 'Sign in','/signup'%></li>
-	<li><%= link_to 'Sign up','/signup'%></li>
-	<% if (request.original_fullpath != 'topics/new') %>
-        <li><%= render 'newButton' %></li> 
+	<% if request.original_fullpath != 'topics/new' && signed_in %>
+              <li><%= render 'newButton' %></li>
     <% end %>
 <% end %>
 <% content_for :content do %>

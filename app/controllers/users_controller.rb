@@ -1,6 +1,6 @@
 class UsersController < ApplicationController  
   def show
-  	@user = User.find(params[:id])
+    @user = current_user
   end
 
   def new
@@ -8,8 +8,10 @@ class UsersController < ApplicationController
   	 @title = "Sign up"
   end
   def create
-  	@user = User.new(user_params)
+  	@user = User.new(name: user_params[:name], email: user_params[:email].downcase, 
+                    password: user_params[:password])
   	if @user.save
+      sign_in @user
       flash[:success] = "Welcome to lolApp!"
   		redirect_to @user
   	else
