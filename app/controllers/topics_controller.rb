@@ -16,7 +16,7 @@ class TopicsController < ApplicationController
 	end
 
 	def create
-		@newTopic = Topic.new(topic_params_post)
+		@newTopic = Topic.new(title: topic_params[:title],image: topic_params_post[:image],user_id: current_user.id)
 		@newTopic.view = @newTopic.comment = @newTopic.like = 0
 		if @newTopic.save
 			redirect_to @newTopic

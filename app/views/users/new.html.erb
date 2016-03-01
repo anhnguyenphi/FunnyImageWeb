@@ -20,6 +20,12 @@
 				<%= f.label :password_confirmation, 'Confirm password*' %>
 				<%= f.password_field :password_confirmation,id: "confirm_password",class: "form-control" ,placeholder: "Password"%>
 			</div>
+			<div class="form-group">
+				<%= f.label :avatar, 'Avatar' %>
+				<%= f.file_field :avatar, id: "avatar" %>
+				<br>
+				<img id="image" height="64" width="64" class="img-rounded"/>
+			</div>
 			<%= f.submit 'Sign up', class: "btn btn-primary" %>
         	<% end %>
 		</div>
@@ -40,4 +46,16 @@ function validatePassword(){
 
 password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
+// avatar loader
+document.getElementById("avatar").onchange = function () {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        // get loaded data and render thumbnail.
+        document.getElementById("image").src = e.target.result;
+    };
+
+    // read the image file as a data URL.
+    reader.readAsDataURL(this.files[0]);
+};
 </script>

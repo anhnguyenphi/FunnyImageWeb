@@ -1,6 +1,8 @@
 class Topic < ActiveRecord::Base
+	belongs_to :user
+
 	has_attached_file :image, styles: {
-							    thumb: '100x100>',
+							    thumb: '300x200',
 							   	full: '600x400>'
 							  	}
 	validates_attachment :image, presence: true,

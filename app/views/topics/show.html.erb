@@ -2,18 +2,18 @@
 	<table class="title">
 	<tr>
 		<td class="leftTitle"><h2><%= @topic.title %></h2></td>
+		<% if @topic.user == current_user %>
 		<td class="rightTitle">
 			<div class="btn-group" role="group" aria-label="...">
-
 				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#Edit">
 					Edit
 				</button>
 
 			  	<%= render 'delete' %>
-			  	
 			</div>
 		</td>
 		<%= render 'edit' %>
+		<% end %>
 	</tr>
 	</table>
 	<div class="">

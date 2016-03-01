@@ -58,6 +58,16 @@ body {
 .infoTopic li {
 	display: inline;
 }
+.avatar {
+
+}
+.avatar-thumb {
+	width: 20px;
+	height: 20px;
+}
+.table th {
+   text-align: center;   
+}
 footer {
 	padding-top: 40px;
 	padding-bottom: 25px;
