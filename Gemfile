@@ -5,6 +5,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
+# Use Server Unicorn
+gem 'unicorn'
+# Gemfile
+gem 'rack-timeout'
 # paginate
 gem 'will_paginate', '~> 3.0.6'
 # Use SCSS for stylesheets
