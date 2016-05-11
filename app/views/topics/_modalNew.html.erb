@@ -6,7 +6,7 @@
         <h4 class="modal-title" id="myModalLabel">New Topic</h4>
       </div>
       <div class="modal-body">
-          <%= form_for @newTopic ,html: { multipart: true} do |f| %>
+          <%= form_for @newTopic,html: { multipart: true} do |f| %>
 			  <% if @newTopic.errors.any? %>
 			    <div id="error_explanation">
 			      <h2>
@@ -27,12 +27,13 @@
 			  <div class="form-group">
 			  <%= f.label :image, 'Image' %>
 			  <%= f.file_field :image %>
+
 			  </div>
+		<% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <%= f.submit 'Post', class: "btn btn-primary" %>
-        <% end %>
+        <button type="submit" form="new_topic" class="btn btn-primary">Post</button>    
       </div>
     </div>
   </div>
