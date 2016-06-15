@@ -16,7 +16,7 @@ class SessionUserController < ApplicationController
   		redirect_to topics_path
   	else
   		@title = "Sign in"
-  		flash.now[:danger] = 'nvalid email or password'
+  		flash.now[:danger] = 'invalid email or password'
   		render 'new'
   	end
   end
