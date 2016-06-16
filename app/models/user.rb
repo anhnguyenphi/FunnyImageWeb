@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :topics
+	has_many :comments
 
 	before_save {self.email = email.downcase}
 	validates :name, presence: true, length: {minimum: 3,maximum: 50}

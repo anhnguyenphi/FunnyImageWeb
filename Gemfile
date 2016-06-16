@@ -38,6 +38,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # File Upload
 gem "paperclip", "~> 4.3"
 
+# Slim template
+gem 'slim'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development, :test do

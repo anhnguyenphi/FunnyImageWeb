@@ -1,0 +1,18 @@
+doctype html
+html
+	head
+		meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+  		title= @title or "LolApp" 
+  		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  		= javascript_include_tag 'application', 'data-turbolinks-track' => true
+  		= csrf_meta_tags
+	body
+		#main
+			header
+				= render '/layouts/narbar'
+				= yield :header
+			#content.container-fluid
+				= content_for?(:content) ? yield(:content) : yield
+		= debug(params) if Rails.env.development?
+		footer
+			p Copyright© 2015 By NPA's Cop

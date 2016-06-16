@@ -11,23 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102095022) do
+ActiveRecord::Schema.define(version: 20160615102203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "content"
+    t.datetime "created_at",                                                        null: false
+    t.datetime "updated_at",                                                        null: false
+    t.integer  "user_id",    default: "nextval('comments_user_id_seq'::regclass)",  null: false
+    t.integer  "topic_id",   default: "nextval('comments_topic_id_seq'::regclass)", null: false
+  end
 
   create_table "topics", force: :cascade do |t|
     t.string   "title"
     t.integer  "view"
     t.integer  "like"
     t.integer  "comment"
-    t.datetime "created_at",                                                             null: false
-    t.datetime "updated_at",                                                             null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "user_id",            default: "nextval('topics_user_id_seq'::regclass)", null: false
+    t.integer  "user_id",            default: 0, null: false
   end
 
   create_table "users", force: :cascade do |t|

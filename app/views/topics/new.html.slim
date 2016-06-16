@@ -1,0 +1,21 @@
+#panel-topic.panel.panel-default
+  .panel-heading
+    h1 New Topic
+  .panel-body
+    = form_for @newTopic ,html: { multipart: true ,class: "nifty_form"} do |f|
+      - if @newTopic.errors.any?
+        #error_explanation
+          h2
+            = pluralize(@newTopic.errors.count, "error")
+            | prohibited
+            | this topic from being saved:
+          ul
+            - @newTopic.errors.full_messages.each do |msg|
+              li= msg
+      .form-group
+        = f.label :title, 'Title'
+        = f.text_field :title, :class => "form-control"
+      .form-group
+        = f.label :image, 'Image'
+        = f.file_field :image
+      = f.submit'Post',:class => "btn btn-primary"
