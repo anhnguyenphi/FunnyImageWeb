@@ -1,0 +1,12 @@
+button.btn.btn-danger data-target=".Delete" data-toggle="modal" type="button"  Delete
+.modal.fade.Delete aria-labelledby="mySmallModalLabel" role="dialog" tabindex="-1" 
+  .modal-dialog.modal-sm
+    .modal-content
+      .modal-header.Model
+        | Delete Topic
+      .modal-body.Model
+        p Do you want delete this topic
+      .modal-footer
+        button.btn.btn-default data-dismiss="modal" type="button"  Close
+        = link_to 'Destroy', topic_path(@topic), method: :delete, class: "btn btn-warning", style: "color:white"
+

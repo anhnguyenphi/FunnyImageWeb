@@ -1,0 +1,24 @@
+- @topic.each do |t|
+  .topic
+    .title
+      h2= t.title
+    div
+      = link_to topic_path(t) do
+        = image_tag t.image.url(:full),:class => "image"
+    ul.infoTopic
+      li
+        a href="" 
+          | View
+          span.badge= t.view
+      li
+        a href="" 
+          | Like
+          span.badge= t.like
+      li
+        a href="" 
+          | Comment
+          span.badge= t.comment
+  hr/
+
+.flickr_pagination
+  = will_paginate @topic

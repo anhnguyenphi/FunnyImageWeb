@@ -1,0 +1,31 @@
+.topic
+  table.title
+    tr
+      td.leftTitle
+        h2= @topic.title
+      - if @topic.user == current_user
+        td.rightTitle
+          .btn-group aria-label="..." role="group" 
+            button.btn.btn-default data-target="#Edit" data-toggle="modal" type="button" 
+              | Edit
+            = render 'delete'
+        = render 'edit'
+  div
+    = image_tag @topic.image.url(:full),:class => "image"
+  ul.infoTopic
+    li
+      a href="" 
+        | View
+        span.badge= @topic.view
+    li
+      a href="" 
+        | Like
+        span.badge= @topic.like
+    li
+      a href="" 
+        | Comment
+        span.badge= @topic.comment
+hr/
+= render 'comments/new'
+
+= render 'comments/index'

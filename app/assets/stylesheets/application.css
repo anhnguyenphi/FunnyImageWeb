@@ -32,32 +32,6 @@ body {
 #main {
    min-height: 100%;
 }
-.topic {
- }
- .title {
-	list-style-type: none;
-	width: 100%;
- }
-.leftTitle {
-	text-align: left;
-}
-.rightTitle {
-	text-align: right;
-}
-.Model {
-	text-align: left;
-}
-.image {
-	width: 100%;
-}
-.infoTopic {
-	text-align: right;
-	list-style-type: none;
-	padding: 10px;
-}
-.infoTopic li {
-	display: inline;
-}
 .avatar {
 
 }

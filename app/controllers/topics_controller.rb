@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
 	def index
-		@topic = Topic.order(created_at: :desc)
+		@topic = Topic.paginate(:page => params[:page], :per_page => 1).order(created_at: :desc)
 		@newTopic = Topic.new
 	end
 
@@ -9,6 +9,8 @@ class TopicsController < ApplicationController
 		@topic = Topic.find(params[:id])
 		@topic.view+=1
 		@topic.save
+		
+		@comments = Comment.where("topic_id = ?", params[:id]).order(created_at: :desc)
 	end
 
 	def new

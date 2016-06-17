@@ -11,32 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615102203) do
+ActiveRecord::Schema.define(version: 20160617052214) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+# Could not dump table "comments" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
-  create_table "comments", force: :cascade do |t|
-    t.string   "content"
-    t.datetime "created_at",                                                        null: false
-    t.datetime "updated_at",                                                        null: false
-    t.integer  "user_id",    default: "nextval('comments_user_id_seq'::regclass)",  null: false
-    t.integer  "topic_id",   default: "nextval('comments_topic_id_seq'::regclass)", null: false
-  end
-
-  create_table "topics", force: :cascade do |t|
-    t.string   "title"
-    t.integer  "view"
-    t.integer  "like"
-    t.integer  "comment"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.integer  "user_id",            default: 0, null: false
-  end
+# Could not dump table "topics" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -51,7 +32,6 @@ ActiveRecord::Schema.define(version: 20160615102203) do
     t.datetime "avatar_updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
-  add_foreign_key "topics", "users"
 end

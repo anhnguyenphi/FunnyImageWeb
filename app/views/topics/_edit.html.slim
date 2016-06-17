@@ -1,0 +1,24 @@
+#Edit.modal.fade aria-labelledby="EditLabel" role="dialog" tabindex="-1" 
+  .modal-dialog role="document" 
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button" 
+          span aria-hidden="true"  ×
+        h4#Model.modal-title Edit
+      .modal-body
+        = form_for(@topic, :id => :edit) do |f|
+          - if @topic.errors.any?
+            #error_explanation
+              h2
+                = pluralize(@topic.errors.count, "error")
+                | prohibited
+                | this topic from being saved:
+              ul
+                - @topic.errors.full_messages.each do |msg|
+                  li= msg
+          .form-group
+            = f.label :title, 'Title:',class: "control-label leftTitle"
+            = f.text_field :title, class: "form-control"
+      .modal-footer
+        button.btn.btn-default data-dismiss="modal" type="button"  Close
+        button type="submit" class="btn btn-primary" form="edit_topic_#{@topic.id}" Save Changes

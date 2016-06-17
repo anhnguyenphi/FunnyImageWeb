@@ -1,0 +1,8 @@
+- @comments.each do |comment|
+	.comment
+		.media
+			.media-left
+				img class="media-object" src="#{comment.user.avatar.url(:thumb)}"/
+			.media-body
+				h4= comment.user.name
+				p= comment.content
