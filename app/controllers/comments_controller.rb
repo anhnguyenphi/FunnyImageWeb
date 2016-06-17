@@ -1,9 +1,4 @@
 class CommentsController < ApplicationController
-	def index
-	end
-
-	def new
-	end
 
 	def create
 		comment = Comment.new(content: comment_params[:content],

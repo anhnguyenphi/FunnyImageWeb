@@ -21,7 +21,18 @@
             = f.text_field :title, :class => "form-control"
           .form-group
             = f.label :image, 'Image'
-            = f.file_field :image
+            = f.file_field :image, id: :image
+        img id="preview" height="300" /
       .modal-footer
         button.btn.btn-default data-dismiss="modal" type="button"  Close
         button.btn.btn-primary form="new_topic" type="submit"  Post
+
+javascript:
+  document.getElementById("image").onchange = function () {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      document.getElementById("preview").src = e.target.result;
+    };
+    reader.readAsDataURL(this.files[0]);
+  };
