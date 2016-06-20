@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
 	def index
-		@topic = Topic.paginate(:page => params[:page], :per_page => 1).order(created_at: :desc)
+		@topic = Topic.paginate(:page => params[:page], :per_page => 2).order(created_at: :desc)
 		@newTopic = Topic.new
 	end
 
@@ -19,7 +19,7 @@ class TopicsController < ApplicationController
 
 	def create
 		@newTopic = Topic.new(title: topic_params[:title],image: topic_params_post[:image],user_id: current_user.id)
-		@newTopic.view = @newTopic.comment = @newTopic.like = 0
+		@newTopic.view = @newTopic.like = 0
 		if @newTopic.save
 			redirect_to @newTopic
 		else

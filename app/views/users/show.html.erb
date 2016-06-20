@@ -11,7 +11,7 @@
 				</tr>
 				<tr>
 					<th><%= @user.topics.count %></th>
-					<th><%= @user.topics.sum("comment") %></th>
+					<th><%= @user.comments_count %></th>
 					<th><%= @user.topics.sum("view") %></th>
 				</tr>
 			</table>

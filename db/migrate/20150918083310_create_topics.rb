@@ -4,7 +4,6 @@ class CreateTopics < ActiveRecord::Migration
       t.string :title
       t.integer :view
       t.integer :like
-      t.integer :comment
       t.timestamps null: false
     end
   end

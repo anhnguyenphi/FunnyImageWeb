@@ -5,6 +5,8 @@ class CommentsController < ApplicationController
 									topic_id: params[:topic_id],
 									user_id: current_user.id)
 		if comment.save
+			Topic.reset_counters(comment.topic.id, :comments)
+			User.reset_counters(current_user.id, :comments) 
 			redirect_to topic_path(params[:topic_id])
 		else
 			flash[:warning] = "Something happen. Try again!"
