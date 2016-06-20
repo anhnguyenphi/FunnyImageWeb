@@ -1,0 +1,41 @@
+.col-md-6.col-md-offset-3 style=("padding-top: 30px") 
+  .panel.panel-info
+    .panel-heading
+      h3 Edit user
+    .panel-body
+      = form_for @user do |f|
+        = render "user_error_messages"
+        .form-group
+          = f.label :name, 'Name'
+          = f.text_field :name,class: "form-control" ,placeholder: "Captain Jack"
+        .form-group
+          = f.label :name, 'Email'
+          = f.text_field :email,class: "form-control" ,placeholder: "abc@xyz.com"
+        .form-group
+          = f.label :name, 'Password'
+          = f.password_field :password,id: "password",class: "form-control" ,placeholder: "Password"
+        .form-group
+          = f.label :password_confirmation, 'Confirm password'
+          = f.password_field :password_confirmation,id: "confirm_password",class: "form-control" ,placeholder: "Password"
+        .form-group
+          = f.label :avatar, 'Avatar'
+          = f.file_field :avatar, id: "avatar"
+          br/
+          img#image.img-rounded height="64" width="64" /
+        = f.submit 'Save changes', class: "btn btn-primary"
+
+/ Check password confirm
+javascript:
+	var password = document.getElementById("password")
+	  , confirm_password = document.getElementById("confirm_password");
+
+	function validatePassword(){
+	  if(password.value != confirm_password.value) {
+	    confirm_password.setCustomValidity("Passwords Don't Match");
+	  } else {
+	    confirm_password.setCustomValidity('');
+	  }
+	}
+
+	password.onchange = validatePassword;
+	confirm_password.onkeyup = validatePassword;

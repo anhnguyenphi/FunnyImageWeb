@@ -1,0 +1,9 @@
+- if @user.errors.any?
+	.alert.alert-danger role="alert"
+	  h4
+	   	| = #{pluralize(@user.errors.count, "error")} prohibited
+	   	| user from being register:
+	  	ul
+	   	- @user.errors.full_messages.each do |msg|
+	   		li = msg 
+

@@ -1,0 +1,29 @@
+.col-md-3
+  .text-center
+    = image_tag @user.avatar.url(:full),:class => "img-thumbnail avatar"
+    br/
+    h3= @user.name
+    div
+      table.table
+        tr
+          th Post
+          th Comment
+          th View
+        tr
+          th= @user.topics.count
+          th= @user.comments_count
+          th= @user.topics.sum("view")
+
+.col-md-9
+  h1 My topics
+  - topic = @user.topics.all.paginate(:page => params[:page], per_page: 6).order('created_at DESC')
+  = will_paginate topic
+  .row
+    - topic.each do |t|
+      .col-sm-6.col-md-4
+        .thumbnail
+          = image_tag t.image.url(:thumb), class: "img-rounded"
+          .caption
+            h4
+              a href="#{topic_path(t)}" = t.title
+
