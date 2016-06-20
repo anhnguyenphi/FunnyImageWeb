@@ -3,6 +3,7 @@ Heroku link: [link](https://guarded-beach-45280.herokuapp.com/)
 
 This web app use Ruby on rails Framework. I use some gem:
 * [Paperclip](https://github.com/thoughtbot/paperclip)
+* [Slim Template](https://github.com/slim-template/slim)
 
 You can post your favorite image with funny title share with everyone. Relaxing with funny articles. Being Awesome!
 
